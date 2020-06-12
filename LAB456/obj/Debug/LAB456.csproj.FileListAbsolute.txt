@@ -109,4 +109,7 @@ C:\Users\quocbao0188\source\repos\LAB456\LAB456\obj\Debug\LAB456.Migrations.Init
 C:\Users\quocbao0188\source\repos\LAB456\LAB456\obj\Debug\LAB456.csproj.GenerateResource.cache
 C:\Users\quocbao0188\source\repos\LAB456\LAB456\obj\Debug\LAB456.Migrations.CreateTableCourse.resources
 C:\Users\quocbao0188\source\repos\LAB456\LAB456\obj\Debug\LAB456.Migrations.PopulateCategoryTable.resources
+C:\Users\quocbao0188\source\repos\LAB456\LAB456\obj\Debug\LAB456.Migrations.AddNameColumnToApplicationUser.resources
+C:\Users\quocbao0188\source\repos\LAB456\LAB456\obj\Debug\LAB456.Migrations.AddNameColumnToApplicationUserTwo.resources
 C:\Users\quocbao0188\source\repos\LAB456\LAB456\obj\Debug\LAB456.csprojAssemblyReference.cache
+C:\Users\quocbao0188\source\repos\LAB456\LAB456\obj\Debug\LAB456.Migrations.AdAttendance.resources
