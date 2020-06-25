@@ -1,9 +1,10 @@
 ﻿@model LAB456.ViewModels.CoursesViewModel
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Attending";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using Microsoft.AspNet.Identity
-<h2>Home</h2>
+<h2>Attending</h2>
 <div class="row">
     <ul class="course">
         @foreach (var course in Model.UpcommingCourses)
@@ -92,10 +93,6 @@
                                 .addClass("btn-default")
                                 .text("Going ?");
                         }
-                        //button
-                        //        .removeClass("btn-default")
-                        //        .addClass("btn-info")
-                        //        .text("Going");
                     })
                     .fail(function () {
                         alert("Something failed!");
