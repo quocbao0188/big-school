@@ -235,3 +235,4 @@ C:\Users\quocbao0188\Source\Repos\big-school\LAB456\obj\Debug\LAB456.dll
 C:\Users\quocbao0188\Source\Repos\big-school\LAB456\obj\Debug\LAB456.pdb
 C:\Users\quocbao0188\Source\Repos\big-school\LAB456\obj\Debug\LAB456.Migrations.AddFollowingsTable.resources
 C:\Users\quocbao0188\source\repos\big-school\LAB456\obj\Debug\LAB456.Migrations.AddIsCanceledColumnToCourse.resources
+C:\Users\quocbao0188\Source\Repos\big-school\LAB456\obj\Debug\LAB456.csprojAssemblyReference.cache
