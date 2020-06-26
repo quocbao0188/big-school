@@ -54,6 +54,14 @@ namespace LAB456.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public ActionResult Detail(int id)
+        {
+            var course = _dbContext.Courses.Include(a => a.Lecturer).Include(a => a.Category).SingleOrDefault(x => x.Id == id);
+
+            
+            return View(course);
+        }
+
         [Authorize]
         public ActionResult Attending()
         {

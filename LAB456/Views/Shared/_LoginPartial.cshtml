@@ -11,7 +11,9 @@
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <li><a href="@Url.Action("Mine", "Courses")">My Upcoming Courses</a></li>
                     <li><a href="@Url.Action("Attending", "Courses")">Course I'm Going</a></li>
-                    <li><a href="#">Lecturer I'm Following</a></li>
+                    <li><a href="@Url.Action("Following", "Account")">Lecturer I'm Following</a></li>
+                    <li><a href="@Url.Action("Follower", "Account")">My Followers</a></li>
+                    <li role="separator" class="divider"></li>
                     <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
                 </ul>
             </li>

@@ -304,6 +304,9 @@
     <Content Include="Views\Courses\Create.cshtml" />
     <Content Include="Views\Courses\Attending.cshtml" />
     <Content Include="Views\Courses\Mine.cshtml" />
+    <Content Include="Views\Courses\Detail.cshtml" />
+    <Content Include="Views\Account\Following.cshtml" />
+    <Content Include="Views\Account\Follower.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

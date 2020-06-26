@@ -10,5 +10,11 @@ namespace LAB456.ViewModels
     {
         public IEnumerable<Course> UpcommingCourses { get; set; }
         public bool ShowAction { get; set; }
+
+        public string searching { get; set; }
+        public List<Attendance> ListOfAttendedCourses { get; set; }
+
+        public List<Following> ListOfFollowings { get; set; }
+        public List<Following> ListOfFollowers { get; set; }
     }
 }

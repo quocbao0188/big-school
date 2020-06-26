@@ -3,11 +3,12 @@
     ViewBag.Title = "Home Page";
 }
 @using Microsoft.AspNet.Identity
-<h2>Home</h2>
+<h2>Schedule</h2>
 <div class="row">
     <ul class="course">
         @foreach (var course in Model.UpcommingCourses)
         {
+            <br />
             <li>
                 <div class="date">
                     <div class="month">
@@ -20,54 +21,68 @@
                 <div class="details">
                     <span class="lecturer">
                         @course.Lecturer.Name
-                        @*@if (Model.ShowAction)
-                            {
-                                   if (@course.LecturerId == User.Identity.GetUserId()) { }
-                                   else
-                                   {
-                                       bool isFollowing = Model.ListOfFollowings.Any(f => f.Followee.Id == @course.LecturerId); if (isFollowing == true)
-                                       {
-                                           <button data-user-id="@course.LecturerId" class="btn btn-link btn-sm js-toggle-follow">
-                                               Following
-                                           </button>
-                                       }
-                                       else
-                                       {
-                                           <button data-user-id="@course.LecturerId" class="btn btn-link btn-sm js-toggle-follow">
-                                               Follow
-                                           </button>}
-                                   }
-                            }*@
                         @if (Model.ShowAction)
                         {
-                            <button class="btn btn-default btn-sm js-toggle-follow" data-user-id="@course.LecturerId">Follow</button>
+                            if (@course.LecturerId == User.Identity.GetUserId())
+                            {
 
+                            }
+                            else
+                            {
+                                bool isFollowing = Model.ListOfFollowings.Any(f => f.Followee.Id == @course.LecturerId);
+                                if (isFollowing == true)
+                                {
+                                    <button data-user-id="@course.LecturerId" class="btn btn-link btn-sm js-toggle-follow">
+                                        Following
+                                    </button>
+                                }
+                                else
+                                {
+                                    <button data-user-id="@course.LecturerId" class="btn btn-link btn-sm js-toggle-follow">
+                                        Follow
+                                    </button>
+                                }
+                            }
                         }
+                        @*@if (Model.ShowAction)
+            {
+                <button class="btn btn-default btn-sm js-toggle-follow" data-user-id="@course.LecturerId">Follow</button>
+
+            }*@
                     </span>
                     <span class="category">
                         @course.Category.Name
-                        @*@if (Model.ShowAction)
-                            {
-                                if (@course.LecturerId == User.Identity.GetUserId())
-                                { }
-                                else
-                                {
-                                    bool isGoing = Model.ListOfAttendedCourses.Any(c => c.CourseId == @course.Id);
-                                    if (isGoing == true)
-                                    {
-                                        <button data-course-id="@course.Id" class="btn btn-info btn-sm js-toggle-attendance">Going</button> }
-                                    else
-                                    {
-                                        <button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance">Going ?</button>}
-                                }
-                            }*@
                         @if (Model.ShowAction)
                         {
-                            <button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance">Going ?</button>
-
+                            if (@course.LecturerId == User.Identity.GetUserId())
+                            {
+                                <p style="color:brown">You own it</p>
+                            }
+                            else
+                            {
+                                bool isGoing = Model.ListOfAttendedCourses.Any(c => c.CourseId == @course.Id);
+                                if (isGoing == true)
+                                {
+                                    <button data-course-id="@course.Id" class="btn btn-info btn-sm js-toggle-attendance">Going</button>
+                                }
+                                else
+                                {
+                                    <button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance">Going ?</button>
+                                }
+                            }
                         }
+                        @*@if (Model.ShowAction)
+            {
+                <button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance">Going ?</button>
+
+            }*@
+
                     </span>
+                    <a href="@Url.Action("Detail", "Courses", new { id = course.Id })" class="btn btn-info">
+                        Detail
+                    </a>
                 </div>
+
             </li>
         }
     </ul>

@@ -9,17 +9,21 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using LAB456.Models;
+using System.Data.Entity;
+using LAB456.ViewModels;
 
 namespace LAB456.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+        private readonly ApplicationDbContext _dbContext;
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
         public AccountController()
         {
+            _dbContext = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -481,5 +485,47 @@ namespace LAB456.Controllers
             }
         }
         #endregion
+
+        [Authorize]
+        public ActionResult Following()
+        {
+            var userId = User.Identity.GetUserId();
+            var followees = _dbContext.Following
+                .Where(a => a.FollowerId == userId)
+                .Include(f => f.Followee)
+                .Include(f => f.Follower)
+                .ToList();
+
+            var viewModel = new CoursesViewModel
+            {
+                ListOfFollowings = followees,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+            return View(viewModel);
+        }
+
+        public ActionResult Follower()
+        {
+            var userId = User.Identity.GetUserId();
+
+            var followees = _dbContext.Following
+               .Where(a => a.FollowerId == userId)
+               .Include(f => f.Followee)
+               .Include(f => f.Follower)
+               .ToList();
+            var followers = _dbContext.Following
+                .Where(a => a.FolloweeId == userId)
+                .Include(f => f.Followee)
+                .Include(f => f.Follower)
+                .ToList();
+
+            var viewModel = new CoursesViewModel
+            {
+                ListOfFollowers = followers,
+                ListOfFollowings = followees,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+            return View(viewModel);
+        }
     }
 }
